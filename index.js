@@ -2,11 +2,12 @@
 
 const express = require('express')
 const app = express()
-const path = require('path')
-const bodyParser = require('body-parser') 
-app.set('port', (process.env.PORT || 5000))
+const moment = require('moment')
+// const path = require('path')
+// const bodyParser = require('body-parser')
+app.set('port', (process.env.PORT || 3000))
 
-// body-parser 
+// body-parser
 // Express route-specific https://github.com/expressjs/body-parser#express-route-specific
 
 // create application/json parser
@@ -15,9 +16,11 @@ app.set('port', (process.env.PORT || 5000))
 // create application/x-www-form-urlencoded parser
 // var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.use(bodyParser.json()) 
-app.use(bodyParser.urlencoded({ extended: false })) 
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: false }))
 
+// Don't need to use a root path app.get('/', function())
+// Below will serve all files that are in the public directory
 app.use(express.static(__dirname + '/public'))
 
 // Don't need to use a templating engine for this project
@@ -63,7 +66,7 @@ app.use(express.static(__dirname + '/public'))
 
 
 // Listen
-app.listen(app.get('port'), function (err) { 
-  if (err) throw err 
+app.listen(app.get('port'), function (err) {
+  if (err) throw err
   console.log('Node app is running on port', app.get('port'))
 })
