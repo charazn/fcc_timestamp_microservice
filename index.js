@@ -3,9 +3,12 @@
 const express = require('express')
 const app = express()
 const moment = require('moment')
+const favicon = require('serve-favicon')
 // const path = require('path')
 // const bodyParser = require('body-parser')
 app.set('port', (process.env.PORT || 3000))
+
+app.use(favicon(__dirname + '/public/favicon.ico'))
 
 // body-parser
 // Express route-specific https://github.com/expressjs/body-parser#express-route-specific
